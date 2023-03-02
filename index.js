@@ -73,8 +73,8 @@ const tab_add = (b1, b2) => {
     if (carry_in && sum_in) {
       // Just carried, not counted
       const swap = move_card_pile(sum, carry, sum_in);
-      carry = swap.to;
       sum = swap.from;
+      carry = swap.to;
     }
     else if (carry_in || sum_in) {
       // carry_in XOR sum_in

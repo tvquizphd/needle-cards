@@ -51,4 +51,18 @@ const start = () => {
   return out.filter(([ok]) => !ok);
 }
 
-console.log(start().length ? 'Fail' : 'Pass');
+const args = process.argv.slice(2);
+if (args.length === 2) {
+  const [a, b] = args.map(x => parseInt(x));
+  const sum = add(a, b);
+  if (sum === a+b) {
+    console.log(`${sum} = ${a} + ${b}`);
+  }
+  else {
+    console.log('Fail');
+  }
+}
+else {
+  console.log('TESTING...');
+  console.log(start().length ? 'Fail' : 'Pass');
+}

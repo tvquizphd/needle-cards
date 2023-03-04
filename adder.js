@@ -27,9 +27,8 @@ const needle_add = ({ idx, cards }, LOG) => {
   // Finish addition of half-added cards
   const o = idx.slice(1).reduce((o, i) => {
     if (see_if([...o.carry, ...o.both], i - 1)) {
-      const can_sum = [...o.sum, ...o.both];
       if (swap_if(o.empty, i, o, 'empty', 'sum'));
-      else if (swap_if(can_sum, i, o, 'sum', 'carry'));
+      else if (swap_if(o.sum, i, o, 'sum', 'carry'));
       else if (swap_if(o.carry, i, o, 'carry', 'both'));
       // Only for logs: clean up the used carry bit
       swap_if(o.carry, i - 1, o, 'carry', 'empty')
